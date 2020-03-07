@@ -1,8 +1,8 @@
-const {getProduct} = require('./api/products');
+const {getProduct,addProduct} = require('./controllers/products');
 
 module.exports = {
   hello: () => {
     return 'Hello World'
   },
-  getProduct
+  addProduct: addProduct
 }
