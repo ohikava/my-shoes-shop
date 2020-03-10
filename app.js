@@ -3,12 +3,10 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const graphqlHTTP = require('express-graphql');
 const morgan = require('morgan');
-const redis = require('redis');
-const session = require('express-session');
 const helmet = require('helmet');
 const compression = require('compression');
 
-
+require('./passport-config.js');
 
 require('dotenv').config();
 
@@ -19,17 +17,6 @@ mongoose.connect(process.env.URL, {useNewUrlParser: true, useUnifiedTopology: tr
 
 const app = express();
 
-let RedisStore = require('connect-redis')(session);
-let redisClient = redis.createClient();
-
-redisClient.on('error', console.error)
-app.use(session({
-  store: new RedisStore({client: redisClient}),
-  secret: 'keyboard cat',
-  resave: false,
-  maxAge: 6000,
-  saveUninitialized: true
-}));
 app.use(helmet());
 app.use(compression());
 app.use(bodyParser.json());
