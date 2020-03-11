@@ -5,8 +5,8 @@ const graphqlHTTP = require('express-graphql');
 const morgan = require('morgan');
 const helmet = require('helmet');
 const compression = require('compression');
-
-require('./passport-config.js');
+const session = require('express-session');
+const passport = require('passport');
 
 require('dotenv').config();
 
@@ -17,11 +17,24 @@ mongoose.connect(process.env.URL, {useNewUrlParser: true, useUnifiedTopology: tr
 
 const app = express();
 
+
+app.use(
+  session({
+    secret: 'heyheyhey',
+    resave: false,
+    maxAge: 3600 * 60,
+  })
+);
 app.use(helmet());
 app.use(compression());
 app.use(bodyParser.json());
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
 app.use(express.static(__dirname + '/public'));
+
+require('./passport-config.js');
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/graphql', graphqlHTTP({
   schema: schema,
