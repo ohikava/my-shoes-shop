@@ -7,6 +7,7 @@ const helmet = require('helmet');
 const compression = require('compression');
 const session = require('express-session');
 const passport = require('passport');
+const authController = require('./controllers/auth.js');
 
 require('dotenv').config();
 
@@ -42,6 +43,7 @@ app.use('/graphql', graphqlHTTP({
   graphiql: true
 }));
 
+app.use('/auth', authController);
 
 const PORT = process.env.PORT || 5000;
 
