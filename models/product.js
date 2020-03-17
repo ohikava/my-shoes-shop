@@ -4,15 +4,15 @@ const productSchema = new mongoose.Schema({
   sku: String,
   brand: String,
   upperMaterial: String,
-  techonogy: String,
+  technology: String,
   silhoute: String,
   designer: String,
   nickname:String,
   category: String,
   mainColor: String,
-  realiseDate: Number,
+  realiseDate: String,
   sizes: [String],
-  id: mongoose.Types.ObjectId
+  id: mongoose.Schema.Types.ObjectId
 });
 
 module.exports = mongoose.model('Product', productSchema);

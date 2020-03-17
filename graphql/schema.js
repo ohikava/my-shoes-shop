@@ -5,13 +5,13 @@ module.exports = buildSchema(`
     sku: String!
     brand: String!
     upperMaterial: String!
-    techonogy: String!
+    technology: String!
     silhoute: String!
     designer: String!
     nickname:String!
     category: String!
     mainColor: String!
-    realiseDate: Int!
+    realiseDate: String!
     sizes: [String]!
     id: ID!
   }
@@ -20,19 +20,20 @@ module.exports = buildSchema(`
     sku: String!
     brand: String!
     upperMaterial: String!
-    techonogy: String!
+    technology: String!
     silhoute: String!
     designer: String!
     nickname:String!
     category: String!
     mainColor: String!
-    realiseDate: Int!
+    realiseDate: String!
     sizes: [String]!
   }
 
   type Query {
     hello: String
     getProduct(productId: String): String
+    getProducts: [Product]
   }
   type Mutation {
     addProduct(input: ProductInput): Product
