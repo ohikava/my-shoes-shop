@@ -7,22 +7,23 @@ passport.use(new LocalStrategy(
     usernameField: 'email',
     passwordField: 'password'
   },
-  function(username, password, done) {
-    User.findOne({email: username}).then((err, user) => {
-      if(err) return done(err);
-      if(!user) return done(null, false, {message: 'Incorrect email'})
-      if(!user.validatePassword(password)) return done(null, false, {message: 'Incorrect password'});
-      return done(null, user);
-    });
+  async function(username, password, done) {
+    try {
+      const user = await User.findOne({email: username});
+      if (!user) done(null, false, {message: "User with this email doesnt exist"});
+      done(null, user);
+  } catch (error) {
+      throw error;
+    }
   }
 ));
 
 passport.serializeUser(function(user, done) {
-  done(null, user.id);
+  done(null, user._id);
 });
 
 passport.deserializeUser(function(id, done) {
-  User.findOne({id: id}, function(err, user) {
+  User.findOne({_id: id}, function(err, user) {
     done(err, user);
   });
 });

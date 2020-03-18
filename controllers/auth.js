@@ -4,7 +4,10 @@ const passport = require('passport');
 const User = require('../models/user.js');
 
 router.post('/login', passport.authenticate('local'), (req, res) => {
-  res.send(req.user);
+  res.send({
+    ...req.user._doc,
+    password: null
+  });
 });
 
 router.post('/register', async (req, res) => {
