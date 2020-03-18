@@ -11,21 +11,45 @@ module.exports = {
       throw error;
     }
   },
+  deleteProduct: async ({id}) => {
+    try {
+      let product = await Product.findOneAndDelete({_id: id});
+      product.id = product._id;
+      return product;
+  } catch (error) {
+      throw error;
+    }
+  },
+  updateProduct: async ({input,id}) => {
+    try {
+      let product = await Product.findOneAndUpdate({_id: id}, {...input});
+      product.id = product._id;
+      return product;
+
+  } catch (error) {
+      throw error;
+    }
+  },
   getProducts: async () => {
     try {
       let products = await Product.find({});
       products = products.map((p) => {
-        console.log(p)
-        return {
-          ...p,
-          id: p._id
-        }
+        p.id = p._id;
+        return p;
       });
-      console.log(products);
       return products;
     }
-      catch (error) {
-        throw error;
-      }
+    catch (error) {
+      throw error;
+    }
+  },
+  getProduct: async ({id}) => {
+    try {
+      let product = await Product.findOne({_id: id});
+      if (product) product.id = product._id;
+      return product;
+  } catch (error) {
+      throw error;
+    }
   }
 };
