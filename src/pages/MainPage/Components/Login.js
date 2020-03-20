@@ -2,7 +2,10 @@ import React from 'react';
 
 const Login = () => {
   return (
-    <div className="login"></div>
+    <div className="login">
+    <span className="login-span">Login</span>
+    <img src="enter.svg" className="login-img" />
+    </div>
   );
 };
 

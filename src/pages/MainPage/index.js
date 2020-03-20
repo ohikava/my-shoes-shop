@@ -8,12 +8,34 @@ import Sizes from './Components/Sizes.js';
 import Sort from './Components/Sort.js';
 import Thumbnail from './Components/Thumbnail.js';
 import Brands from './Components/Brands.js';
-
+import TextLogo from './Components/TextLogo.js';
 import "./styles.scss";
 
 const MainPage = () => {
   return (
-    <div className="mainpage">Hello world</div>
+    <div className="mainpage">
+      <header className="mainpage-header">
+        <div className="mainpage-header-wrapper">
+          <Login />
+          <TextLogo />
+          <CartThumbnail />
+        </div>
+      </header>
+      <div className="mainpage-body">
+        <aside>
+          <Sort />
+          <PriceLimit />
+          <Colors />
+        </aside>
+        <main>
+          <ProductList />
+        </main>
+        <aside>
+          <Sizes />
+          <Brands />
+        </aside>
+      </div>
+    </div>
   );
 };
 
