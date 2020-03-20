@@ -6,7 +6,6 @@ import Login from './Components/Login.js';
 import PriceLimit from './Components/PriceLimit.js';
 import Sizes from './Components/Sizes.js';
 import Sort from './Components/Sort.js';
-import Thumbnail from './Components/Thumbnail.js';
 import Brands from './Components/Brands.js';
 import TextLogo from './Components/TextLogo.js';
 import "./styles.scss";

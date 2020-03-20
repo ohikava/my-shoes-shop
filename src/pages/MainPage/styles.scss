@@ -2,7 +2,7 @@
   &-header {
     width: 100%;
     position: fixed;
-    font-size: 1.2em;
+    background: white;
     &-wrapper {
       display: flex;
       justify-content: space-between;
@@ -15,26 +15,27 @@
         padding-left: 6vh;
 
         &-span {
-          font-size: 2.5em;
+          font-size: 1.6em;
+          font-weight: bold;
           font-family: 'Muli', sans-serif;
         }
         &-img {
           width: 6vh;
           margin-left: 2vh;
-          height: 10vh;
+          height: 5vh;
         }
       }
       .text-logo {
         display: flex;
         justify-content: center;
         &-span {
-          font-size: 3.5em;
+          font-size: 3em;
           font-weight: bold;
           font-family: 'Muli', sans-serif;
         }
         &-img {
           width: 17vh;
-          height: 14vh;
+          height: 10vh;
         }
       }
       .cart-thumbnail {
@@ -43,14 +44,45 @@
         display: flex;
         margin-right: 6vh;
         &-span {
-          font-size: 3em;
+          font-size: 1.6em;
+          font-weight: bold;
           font-family: 'Muli', sans-serif;
         }
         &-img {
           width: 8vh;
-          margin-left: 2vh;
-          height: 9vh;
+          margin-left: 1vh;
+          height: 6vh;
         }
+      }
+    }
+  }
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 15vh;
+
+    .thumbnail {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2vh;
+      box-sizing: border-box;
+      height: 40vh;
+      justify-content: space-around;
+      &-img {
+        width: 32vh;
+        height: 17vh;
+      }
+      &-nickname {
+        text-align: center;
+        font-size: 1.2em;
+        font-family: 'Muli', sans-serif;
+        width: 30vh;
+        height: 5vh;
+      }
+      &-price {
+        font-size: 1.3em;
+        font-family: 'Muli', sans-serif;
       }
     }
   }
