@@ -21,12 +21,12 @@ const MainPage = () => {
         </div>
       </header>
       <div className="mainpage-body">
-        <aside>
+        <aside >
           <Sort />
           <PriceLimit />
           <Colors />
         </aside>
-        <main>
+        <main >
           <ProductList />
         </main>
         <aside>
