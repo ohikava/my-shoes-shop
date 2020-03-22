@@ -1,33 +1,23 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import Thumbnail from './Thumbnail';
-
-const initialDate = [
-  {
-    nickname: "Supreme x Air Force 1 Low 'Box Logo - White'",
-    sku: "CU9225 100",
-    price: 200,
-    image: "CU9225 100.jpeg"
-  },
-  {
-    nickname: "LeBron 17 GS 'Sprite'",
-    sku: "BQ5594 434",
-    price: 175,
-    image: "BQ5594 434.png"
-
-  },
-  {
-    nickname: "Dunk Low Retro SP 'Syracuse'",
-    sku: "CU1726 101",
-    price: 220,
-    image: "CU1726 101.jpeg"
-  }
-];
+import {CircularProgress} from "@material-ui/core"
+import {fetchProducts} from "../../../services/productReducer/actions";
+import {useSelector, useDispatch} from 'react-redux';
 
 const ProductList = () => {
+  const dispatch = useDispatch();
+  const products = useSelector(s => s.products.products);
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+    console.log(products)
+  });
+
+  console.log(products)
   return (
     <div className="product-list">
       {
-        initialDate.map(p => <Thumbnail product={p} />)
+        products.length === 0 ? <CircularProgress color="secondary" className="loading" /> : products.map(p => <Thumbnail product={p} />)
       }
     </div>
   );

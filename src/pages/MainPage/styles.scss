@@ -1,5 +1,6 @@
 .mainpage {
   &-header {
+    user-select: none;
     width: 100%;
     position: fixed;
     background: white;
@@ -61,7 +62,12 @@
     display: grid;
     grid-template-columns: 2fr 5fr 2fr;
 
+    aside {
+      display: flex;
+      flex-direction: column;
+    }
     .sort {
+      user-select: none;
       display: flex;
       flex-direction: column;
       padding: 6vh;
@@ -87,11 +93,15 @@
       display: flex;
       flex-wrap: wrap;
 
+      .loading {
+        display: flex;
+        justify-content: center;
+      }
       .thumbnail {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 2vh;
+        padding: 3vh;
         box-sizing: border-box;
         height: 40vh;
         justify-content: space-around;
@@ -114,6 +124,7 @@
     }
 
     .sizes {
+      user-select: none;
       display: flex;
       flex-direction: column;
       padding: 4vh;
@@ -147,7 +158,7 @@
       display: flex;
       flex-direction: column;
       &-inp {
-        width: 28vh;
+        width: 30vh;
         color: red;
       }
       &-wrapper {
@@ -168,19 +179,18 @@
         }
         &-range {
           display: block;
-          width: 10vh;
+          width: 11vh;
           height: 5vh;
           font-size: 1.4em;
           background: #FFF3EA;
           box-sizing: border-box;
-          padding: .5vh;
+          padding: .3vh;
           &-inp {
             border: none;
             outline: none;
             font-size: 0.9em;
             box-sizing: border-box;
             padding-left: .2vh;
-            padding-right: 1vh;
             height: 4vh;
             background: #FFF3EA;
             width: 7vh;
@@ -191,6 +201,81 @@
                margin: 0;
             }
           }
+        }
+      }
+    }
+
+    .colors {
+      user-select: none;
+      display: flex;
+      margin-left: 6vh;
+      flex-direction: column;
+      padding: 1vh;
+      &-title {
+        font-size: 1.7em;
+        padding: 2vh 0;
+      }
+
+      &-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 1vh;
+        background: #FFF3EA;
+        width: 28vh;
+        &-color {
+          width: 3.2vh;
+          height: 3vh;
+          cursor: pointer;
+          margin: 1vh;
+          &-black {
+            background: black;
+          }
+          &-red {
+            background: red;
+          }
+          &-blue {
+            background: #0800ff;
+          }
+          &-yellow {
+            background: #eeff00;
+          }
+          &-green {
+            background: #00fc3b;
+          }
+          &-grey {
+            background: #ccc;
+          }
+          &-turquoise {
+            background: #00ebff;
+          }
+          &-purple {
+            background: #ff1cf2;
+          }
+          &-orange {
+            background: #ffc400;
+          }
+          &-white {
+            background: white;
+          }
+        }
+      }
+    }
+    .brands {
+      user-select: none;
+      display: flex;
+      flex-direction: column;
+      padding: 4vh;
+      &-title {
+        font-size: 1.7em;
+        padding: 1vh;
+      }
+      &-wrapper {
+        display: flex;
+        flex-direction: column;
+
+        &-brand {
+          padding: .3vh 1vh;
+          font-size: 1.3em;
         }
       }
     }

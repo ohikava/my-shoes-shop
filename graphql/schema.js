@@ -4,6 +4,7 @@ module.exports = buildSchema(`
   type Product {
     sku: String!
     brand: String!
+    price: Int!
     upperMaterial: String!
     technology: String!
     silhoute: String!
@@ -11,6 +12,7 @@ module.exports = buildSchema(`
     nickname:String!
     category: String!
     mainColor: String!
+    image: String!
     realiseDate: String!
     sizes: [String]!
     id: ID!
@@ -20,12 +22,14 @@ module.exports = buildSchema(`
     sku: String
     brand: String
     upperMaterial: String
+    price: Int
     technology: String
     silhoute: String
     designer: String
     nickname:String
     category: String
     mainColor: String
+    image: String
     realiseDate: String
     sizes: [String]
   }

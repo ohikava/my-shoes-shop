@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const graphqlHTTP = require('express-graphql');
 const morgan = require('morgan');
 const helmet = require('helmet');
@@ -26,6 +27,7 @@ app.use(
     maxAge: 3600 * 60,
   })
 );
+app.use(cors());
 app.use(helmet());
 app.use(compression());
 app.use(bodyParser.json());

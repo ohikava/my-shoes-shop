@@ -4,6 +4,7 @@ module.exports = {
   addProduct: async ({input}) => {
     try {
       const newProduct = new Product({...input});
+      newProduct.id = newProduct._id;
       await newProduct.save();
       return newProduct;
   }
