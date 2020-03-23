@@ -1,29 +1,32 @@
-import React,{useState} from 'react';
+import React from 'react';
 import {Slider} from "@material-ui/core";
-
+import {changePriceLimit} from '../../../services/priceLimitReducer/actions';
+import {useSelector, useDispatch} from 'react-redux';
 
 const PriceLimit = () => {
-  const [value, setValue] = useState([100, 1000]);
+  const value = useSelector(s => s.priceLimit.priceLimit);
+  const dispatch = useDispatch();
+
   const handleChangeSlider = (event, newValue) => {
-    setValue(newValue.map((i) => i * 10));
+    dispatch(changePriceLimit(newValue.map((i) => i * 10)));
   }
   const handleChangeInputLeft = (e) => {
     if(e.target.value > 1000) {
-      setValue([1000, value[1]]);
+      dispatch(changePriceLimit([1000, value[1]]));
       return;
     }
     if(e.target.value >= 0) {
-      setValue([e.target.value, value[1]]);
+      dispatch(changePriceLimit([e.target.value, value[1]]));
       return;
     }
   };
   const handleChangeInputRight = (e) => {
     if(e.target.value > 1000) {
-      setValue([value[0], 1000]);
+      dispatch(changePriceLimit([value[0], 1000]));
       return;
     }
     if(e.target.value >= 0) {
-      setValue([value[0], e.target.value]);
+      dispatch(changePriceLimit([value[0], e.target.value]));
       return;
     }
   }

@@ -1,4 +1,4 @@
-import {FETCH_PRODUCTS} from './actionsTypes.js';
+import {FETCH_PRODUCTS} from './actionsTypes';
 
 export const fetchProducts = () => async dispatch => {
   try {
@@ -21,6 +21,7 @@ export const fetchProducts = () => async dispatch => {
   });
     let products = await productsJson.json();
     products = products.data.getProducts;
+
     return dispatch({
       type: FETCH_PRODUCTS,
       payload: products
