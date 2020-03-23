@@ -3,7 +3,7 @@ import Thumbnail from './Thumbnail';
 import {CircularProgress} from "@material-ui/core"
 import {fetchProducts} from "../../../services/productReducer/actions";
 import {useSelector, useDispatch} from 'react-redux';
-import {DEFAULT, H_T_L, L_T_H} from "../../../services/sortReducer/actionsTypes.js";
+import {DEFAULT, H_T_L} from "../../../services/sortReducer/actionsTypes.js";
 
 const ProductList = () => {
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const ProductList = () => {
         return a.price - b.price;
       };
       result = result.sort(compare);
-      if (sort == H_T_L) {
+      if (sort === H_T_L) {
         result = result.reverse();
       }
     };
@@ -32,7 +32,7 @@ const ProductList = () => {
     result = result.filter((p) => {
       return ((p.price >= priceLimit[0]) && (p.price <= priceLimit[1]));
     });
-    
+
     return result;
   }
   console.log(products)
