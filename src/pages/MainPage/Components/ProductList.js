@@ -10,10 +10,12 @@ const ProductList = () => {
   const products = useSelector(s => s.products.products);
   const sort = useSelector(s => s.sort.sort);
   const priceLimit = useSelector(s => s.priceLimit.priceLimit);
+  const colors = useSelector(s => s.colors.colors);
+  const brands = useSelector(s => s.brands.brands);
+  const sizes = useSelector(s => s.sizes.sizes);
 
   useEffect(() => {
     dispatch(fetchProducts());
-    console.log(products)
   });
 
   const config = () => {
@@ -33,6 +35,16 @@ const ProductList = () => {
       return ((p.price >= priceLimit[0]) && (p.price <= priceLimit[1]));
     });
 
+    if(Object.values(colors).some(v => v)) {
+      result = result.filter(p => colors[p.mainColor]);
+    }
+
+    if(Object.values(brands).some(v => v)) {
+      result = result.filter(p => brands[p.brand]);
+    }
+    if(Object.values(sizes).some(v => v)) {
+      result = result.filter(p => p.sizes.some(e => sizes[e]));
+    }
     return result;
   }
   console.log(products)

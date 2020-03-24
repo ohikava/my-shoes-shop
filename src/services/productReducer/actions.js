@@ -14,7 +14,10 @@ export const fetchProducts = () => async dispatch => {
           image
           id
           price
+          sizes
           nickname
+          brand
+          mainColor
         }
     }`
     })

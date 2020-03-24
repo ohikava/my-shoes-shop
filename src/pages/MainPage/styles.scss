@@ -105,7 +105,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 3vh;
+        padding: 2vh;
         box-sizing: border-box;
         height: 40vh;
         justify-content: space-around;
@@ -140,8 +140,16 @@
       &-wrapper {
         display: flex;
         flex-wrap: wrap;
-
+        .active {
+          transform: scale(1.2);
+          &:hover {
+            transform: scale(1.2);
+          }
+        }
         &-item {
+          &:hover {
+            transform: scale(1.1);
+          }
           padding: 2vh;
           background: #FFF3EA;
           font-size: 0.9em;
@@ -226,11 +234,24 @@
         padding: 1vh;
         background: #FFF3EA;
         width: 28vh;
+
+        .active {
+          transform: scale(1.3);
+
+          &:hover {
+            transform: scale(1.3);
+          }
+        }
         &-color {
           width: 3.2vh;
           height: 3vh;
           cursor: pointer;
           margin: 1vh;
+
+          &:hover {
+            transform: scale(1.2);
+          }
+
           &-black {
             background: black;
           }

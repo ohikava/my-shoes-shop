@@ -1,20 +1,32 @@
 import React from 'react';
+import {useSelector, useDispatch} from 'react-redux';
+import {changeColor} from '../../../services/colorsReducer/actions.js';
+
+const colorsList = [
+  "black",
+  "red",
+  "blue",
+  "yellow",
+  "green",
+  "grey",
+  "turquoise",
+  "purple",
+  "orange",
+  "white"
+];
 
 const Colors = () => {
+  const dispatch = useDispatch();
+  const colors = useSelector(s => s.colors.colors);
   return (
     <div className="colors">
       <span className="colors-title">Color:</span>
       <div className="colors-wrapper">
-        <div className="colors-wrapper-color colors-wrapper-color-black"></div>
-        <div className="colors-wrapper-color colors-wrapper-color-red"></div>
-        <div className="colors-wrapper-color colors-wrapper-color-blue"></div>
-        <div className="colors-wrapper-color colors-wrapper-color-yellow"></div>
-        <div className="colors-wrapper-color colors-wrapper-color-green"></div>
-        <div className="colors-wrapper-color colors-wrapper-color-grey"></div>
-        <div className="colors-wrapper-color colors-wrapper-color-turquoise"></div>
-        <div className="colors-wrapper-color colors-wrapper-color-purple"></div>
-        <div className="colors-wrapper-color colors-wrapper-color-orange"></div>
-        <div className="colors-wrapper-color colors-wrapper-color-white"></div>
+        {
+          colorsList.map(c => <div className={`colors-wrapper-color colors-wrapper-color-${c} ${colors[c] ? "active" : ""}`} onClick={() => {
+            dispatch(changeColor(c))
+          }}></div>)
+        }
       </div>
     </div>
   );

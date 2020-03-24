@@ -1,5 +1,7 @@
-import React,{useState} from 'react';
+import React from 'react';
 import {Checkbox, FormControlLabel} from "@material-ui/core";
+import {useSelector, useDispatch} from 'react-redux';
+import {changeBrand} from '../../../services/brandsReducer/actions';
 
 const brandsList = [
   "Nike",
@@ -12,20 +14,13 @@ const brandsList = [
 ];
 
 const Brands = () => {
-  const [activeBrands, setActiveBrands] = useState({
-    "Nike": false,
-    "Adidas": false,
-    "Air Jordan": false,
-    "New Balance": false,
-    "Sacai": false,
-    "Comme des Garçons": false,
-    "Converse": false
-  });
+  const dispatch = useDispatch();
+  const brands = useSelector(s => s.brands.brands);
 
   const handleChangeCheckboxis = (event) => {
-    setActiveBrands({ ...activeBrands, [event.target.name]: event.target.checked});
+    dispatch(changeBrand(event.target.name));
   };
-  
+
   return (
     <div className="brands">
       <span className="brands-title">Brands:</span>
@@ -34,6 +29,7 @@ const Brands = () => {
           brandsList.map((b) => (
             <FormControlLabel
               control={<Checkbox />}
+              checked={brands[`${b}`]}
               onChange={handleChangeCheckboxis}
               label={`${b}`}
               name={`${b}`}
