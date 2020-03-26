@@ -5,6 +5,7 @@ import priceLimitReducer from './priceLimitReducer/reducer';
 import colorsReducer from './colorsReducer/reducer';
 import brandsReducer from './brandsReducer/reducer';
 import sizesReducer from './sizesReducer/reducer';
+import userReducer from './userReducer/reducer';
 
 export default combineReducers({
   products: productReducer,
@@ -12,5 +13,6 @@ export default combineReducers({
   priceLimit: priceLimitReducer,
   colors: colorsReducer,
   brands: brandsReducer,
-  sizes: sizesReducer
+  sizes: sizesReducer,
+  user: userReducer
 });

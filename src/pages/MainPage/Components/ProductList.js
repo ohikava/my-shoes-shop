@@ -16,7 +16,7 @@ const ProductList = () => {
 
   useEffect(() => {
     dispatch(fetchProducts());
-  });
+  },[products]);
 
   const config = () => {
     let result = products.slice();

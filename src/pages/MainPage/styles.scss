@@ -5,7 +5,23 @@
     position: fixed;
     z-index: 1000;
     background: white;
-
+    .username {
+      display: flex;
+      flex-direction: column;
+      margin-left: 7vh;
+      font-family: 'Muli', sans-serif;
+      &-name {
+        font-size: 2.5em;
+      }
+      &-logout {
+        font-size: 0.9em;
+        cursor: pointer;
+        align-self: flex-end;
+        &:hover {
+          color: #ff0000;
+        }
+      }
+    }
     .login-window {
       display: flex;
       flex-direction: column;

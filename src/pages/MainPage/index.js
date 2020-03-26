@@ -9,19 +9,23 @@ import Sort from './Components/Sort.js';
 import Brands from './Components/Brands.js';
 import TextLogo from './Components/TextLogo.js';
 import LoginWindow from './Components/LoginWindow.js';
+import UserThumbnail from './Components/UserThumbnail.js';
+
+import {useSelector} from 'react-redux';
 
 import "./styles.scss";
 
 const MainPage = () => {
   const [isLoginWindow, setLoginWindow] = useState(false);
+  const user = useSelector(s => s.user.user);
 
   return (
     <div className="mainpage">
       <header className="mainpage-header">
         <div className="mainpage-header-wrapper">
-            <Login handleClick={setLoginWindow} isActive={isLoginWindow} />
+            {user !== null ? <UserThumbnail username={user.username} />  : <Login handleClick={setLoginWindow} isActive={isLoginWindow} />}
             {
-              isLoginWindow ? <LoginWindow /> : ""
+              isLoginWindow && user === null ? <LoginWindow /> : ""
             }
             <TextLogo />
             <CartThumbnail />
