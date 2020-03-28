@@ -11,16 +11,26 @@ router.post('/login', passport.authenticate('local'), (req, res) => {
 });
 
 router.post('/register', async (req, res) => {
-  const {username, email, password} = req.body;
-  User.findOne({username: username},(result, err) => {
-    if(result) res.send('User with this username already have existed');
-  });
+  console.log('1')
+  const {name, surname, email, password,password2} = req.body;
+  console.log(req.body);
+  if (password !== password2) {
+    res.send('Passwords dodn`t equal');
+  };
+  console.log('3')
+
   User.findOne({email: email}, (result, err) => {
     if(result) res.send('User with this email already have existed');
   });
-  const newUser = new User({username: username, email: email, password: password});
+  console.log('4')
+  const newUser = new User({name: name, surname: surname, email: email, password: password});
+  console.log(newUser);
   const result = await newUser.save();
-  res.send(result);
+  req.login(newUser, (error) => {
+    if (error) throw error;
+    return res.send({...newUser,
+                    password: null});
+  });
 });
 
 router.get('/logout', (req, res) => {

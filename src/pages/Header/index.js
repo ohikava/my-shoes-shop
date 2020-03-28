@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-wrapper">
-        {user !== null ? <UserThumbnail username={user.username} />  : <Login handleClick={setLoginWindow} isActive={isLoginWindow} />}
+        {user !== null ? <UserThumbnail name={user.name} surname={user.surname} />  : <Login handleClick={setLoginWindow} isActive={isLoginWindow} />}
           {
             isLoginWindow && user === null ? <LoginWindow /> : ""
           }

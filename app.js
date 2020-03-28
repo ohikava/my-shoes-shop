@@ -7,6 +7,7 @@ const morgan = require('morgan');
 const helmet = require('helmet');
 const compression = require('compression');
 const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 const passport = require('passport');
 const authController = require('./controllers/auth.js');
 
@@ -25,12 +26,16 @@ app.use(
     secret: 'heyheyhey',
     resave: false,
     maxAge: 3600 * 60,
+    store: new MongoStore({ url: process.env.URL})
   })
 );
 app.use(cors());
 app.use(helmet());
 app.use(compression());
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
 app.use(express.static(__dirname + '/public'));
 
