@@ -28,7 +28,6 @@ const LoginWindow = () => {
       <button type="submit" className="login-window-btn">Log In</button>
       <div className="login-window-extra">
         <Link to="/register" className="login-window-extra-span">Create account</Link>
-        <Link to="/create_password" className="login-window-extra-span">Forgot password?</Link>
       </div>
     </form>
   );
