@@ -3,6 +3,7 @@ import {CircularProgress} from "@material-ui/core"
 import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import MainPage from './pages/MainPage';
 import Register from './pages/RegisterPage';
+import ProductPage from './pages/ProductPage';
 import Header from './pages/Header';
 import {Provider} from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react'
@@ -22,6 +23,9 @@ const App = () => {
             </Route>
             <Route path="/register">
               <Register />
+            </Route>
+            <Route path="/products/:id">
+              <ProductPage />
             </Route>
           </Switch>
         </Router>

@@ -1,0 +1,60 @@
+.product-page {
+  padding-top: 20vh;
+  display: flex;
+  width: 60%;
+  margin: auto;
+
+  &-wrapper {
+    padding: 1vh;
+  }
+  &-img {
+    height: 30vh;
+  }
+  &-nickname {
+    font-size: 2.9em;
+  }
+  &-panel {
+    display: grid;
+    margin-top: 5vh;
+    background: #fff3ea;
+    padding: 3vh;
+    grid-template-columns: 1fr 1fr;
+    &-sizes {
+      padding-left: 1vh;
+      background: transparent;
+    }
+    &-span {
+      font-size: 1.3em;
+      margin: .3vh 0;
+      &-bold {
+        font-weight: bold;
+      }
+    }
+  }
+  &-btns {
+    display: flex;
+    margin-top: 21vh;
+    align-items: flex-end;
+    &-btn {
+      color: white;
+      margin-right:5vh;
+      box-sizing: border-box;
+      width: 25vh;
+      height: 15vh;
+      font-size: 1.1em;
+      cursor: pointer;
+      border-radius: 1vh;
+      border: none;
+      outline: none;
+      &:hover {
+        opacity: 0.7;
+      }
+      &-black {
+        background: black;
+      }
+      &-red {
+        background: red;
+      }
+    }
+  }
+}
