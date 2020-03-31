@@ -6,6 +6,7 @@ import colorsReducer from './colorsReducer/reducer';
 import brandsReducer from './brandsReducer/reducer';
 import sizesReducer from './sizesReducer/reducer';
 import userReducer from './userReducer/reducer';
+import cartReducer from './cartReducer/reducer';
 
 export default combineReducers({
   products: productReducer,
@@ -14,5 +15,6 @@ export default combineReducers({
   colors: colorsReducer,
   brands: brandsReducer,
   sizes: sizesReducer,
-  user: userReducer
+  user: userReducer,
+  cart: cartReducer
 });
