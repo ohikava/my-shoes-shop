@@ -1,0 +1,71 @@
+.cart-page {
+  padding-top: 30vh;
+  display: flex;
+  flex-wrap: wrap;
+  width: 65%;
+  margin: auto;
+  .thumbnail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 55vh;
+    position: relative;
+    margin: 2vh;
+    &-delete {
+      position: absolute;
+      width: 2vh;
+      right: 1vh;
+      cursor: pointer;
+    }
+    &-img {
+      grid-row: 1/4;
+      width: 27vh;
+    }
+    &-nickname {
+      font-size: 1.8em;
+      text-align: center;
+      margin-bottom: 1vh;
+      margin-top: 2vh;
+    }
+    &-price {
+      font-size: 1.3em;
+      margin-bottom: 3vh;
+      text-align: center;
+    }
+
+    &-quantity {
+      display: flex;
+      justify-content: center;
+      &-btn {
+        width: 5vh;
+        cursor: pointer;
+        height: 5vh;
+
+      }
+      &-span {
+        padding: 0 1.5vh;
+        font-size: 1.5em;
+      }
+    }
+  }
+  .panel {
+    width: 20%;
+    position: fixed;
+    right: 0;
+    margin: 2vh;
+
+    &-btn {
+      width: 12vh;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      height: 7vh;
+      background: black;
+      color: white;
+      font-size: 1.3em;
+      margin-top: 5vh;
+      &:hover {
+        box-shadow: .3vh .3vh .3vh .3vh black;
+      }
+    }
+  }
+}

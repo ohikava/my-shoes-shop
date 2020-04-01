@@ -2,7 +2,7 @@ import {LOGIN, LOGOUT} from './actionsTypes';
 
 export const login = (email, password) => async dispatch => {
   try {
-    const userJson = await fetch("http://localhost:5000/auth/login", {
+    const userJson = await fetch("/auth/login", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -24,7 +24,7 @@ export const login = (email, password) => async dispatch => {
 
 export const logout = () => async dispatch => {
   try {
-    await fetch("http://localhost:5000/auth/logout");
+    await fetch("/auth/logout");
     return dispatch({
       type: LOGOUT
     })
@@ -36,7 +36,7 @@ export const logout = () => async dispatch => {
 
 export const register = (password, password2, name, surname, email) => async dispatch => {
   try {
-      const newUserJson = await fetch("http://localhost:5000/auth/register", {
+      const newUserJson = await fetch("/auth/register", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

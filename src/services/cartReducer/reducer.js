@@ -18,6 +18,7 @@ export default (state = initialState, action) => {
           })
         };
       }
+      action.payload.quantity = 1;
       return {
         ...state,
         cart: [...state.cart, action.payload]

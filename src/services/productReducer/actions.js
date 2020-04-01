@@ -2,7 +2,7 @@ import {FETCH_PRODUCTS} from './actionsTypes';
 
 export const fetchProducts = () => async dispatch => {
   try {
-    const productsJson = await fetch('http://localhost:5000/graphql', {
+    const productsJson = await fetch('/graphql', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

@@ -22,42 +22,36 @@ const ProductPage = () => {
     dispatch(addToCart(product));
     history.replace('/');
   };
-  useEffect(async () => {
-    try {
-      const productJson = await fetch('http://localhost:5000/graphql', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify({
-            query: `{
-              getProduct(id: "${id}") {
-                id
-                sizes
-                sku
-                brand
-                upperMaterial
-                price
-                technology
-                silhoute
-                designer
-                nickname
-                category
-                mainColor
-                image
-                realiseDate
-            }
-          }`,
-        },
-      ),
-      });
-      const productFromJson = await productJson.json();
-      setProduct(productFromJson.data.getProduct);
 
-    } catch (error) {
-      throw error
-    }
+  useEffect(() => {
+    fetch('/graphql', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify({
+          query: `{
+            getProduct(id: "${id}") {
+              id
+              sizes
+              sku
+              brand
+              upperMaterial
+              price
+              technology
+              silhoute
+              designer
+              nickname
+              category
+              mainColor
+              image
+              realiseDate
+          }
+        }`,
+      },
+    ),
+  }).then(res => res.json()).then(product => setProduct(product.data.getProduct));
   },[id]);
 
   return (
@@ -91,7 +85,7 @@ const ProductPage = () => {
           <span className="product-page-panel-span-bold product-page-panel-span">Realise Date:</span>
           <span className="product-page-panel-span">{`${new Date(product.realiseDate).getFullYear()}-${new Date(product.realiseDate).getMonth()}-${new Date(product.realiseDate).getDate()}`}</span>
           <span className="product-page-panel-span-bold product-page-panel-span">Price:</span>
-          <span className="product-page-panel-span">{product.price}$</span>
+          <span className="product-page-panel-span">${product.price}</span>
           <span className="product-page-panel-span-bold product-page-panel-span">Size:</span>
           <Select value={size} onChange={handleChange} className="product-page-panel-sizes">
             <MenuItem className="product-page-panel-sizes-size" value="4.5M">4.5M</MenuItem>
