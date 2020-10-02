@@ -16,7 +16,7 @@ require('dotenv').config();
 const schema = require('./graphql/schema.js');
 const root = require('./graphql/root.js');
 
-mongoose.connect(process.env.URL, {useNewUrlParser: true, useUnifiedTopology: true}).then(() => console.log('connection is successful')).catch(err => console.error(err));
+mongoose.connect("mongodb+srv://Ivan:ZJj4ECoB3vpRfuQD@cluster0-xynvl.mongodb.net/myshoesshop?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true}).then(() => console.log('connection is successful')).catch(err => console.error(err));
 
 const app = express();
 
