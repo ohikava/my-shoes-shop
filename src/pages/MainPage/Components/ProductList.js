@@ -43,7 +43,7 @@ const ProductList = () => {
       result = result.filter(p => brands[p.brand]);
     }
     if(Object.values(sizes).some(v => v)) {
-      result = result.filter(p => p.sizes.some(e => sizes[e]));
+      result = result.filter(p => p.sizes.some(e => sizes[e]) || Object.keys(sizes).every(e => !e));
     }
     return result;
   }
